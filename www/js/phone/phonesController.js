@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
 
-    .controller('showListPhones', function ($scope, $ionicModal, $timeout, contactService) {
+    .controller('showListPhones', function ($scope, $ionicModal, $timeout, contactService, $cordovaImagePicker) {
 
         $scope.loginData = {};
 
@@ -26,8 +26,28 @@ angular.module('starter.controllers')
 
         };
 
+        $scope.loadPhoto = function () {
+            var options = {
+                maximumImagesCount: 10,
+                width: 28,
+                height: 28,
+                quality: 80
+            };
+
+            $cordovaImagePicker.getPictures(options)
+                .then(function (results) {
+
+                    $scope.resultImage = results[0];
+
+                }, function (error) {
+
+                    alert(error);
+
+                });
+        };
+
         $scope.saveContact = function () {
-            contactService.saveContact($scope.loginData.name, $scope.loginData.phoneNumber, $scope.loginData.address);
+            contactService.saveContact($scope.loginData.name, $scope.loginData.phoneNumber, $scope.loginData.address, $scope.resultImage);
 
             $timeout(function () {
 

@@ -10,13 +10,20 @@ angular.module('starter.services', []).factory('contactService',
                 });
         }
 
-        function saveContact(displayName, phoneNumbers, addresses) {
-            $cordovaContacts.save({
+        function saveContact(displayName, phoneNumbers, addresses, phone) {
+
+            var options = {
 
                 "displayName": displayName, "phoneNumbers": [{"value": phoneNumbers}],
-                'addresses': [{'streetAddress': addresses}]
+                "addresses": [{"streetAddress": addresses}]
 
-            }).then(function (result) {
+            };
+
+            if(phone){
+                options.photos = [{ "value": phone }];
+            }
+
+            $cordovaContacts.save(options).then(function (result) {
 
             }, function (error) {
 

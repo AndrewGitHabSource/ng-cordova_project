@@ -7,7 +7,9 @@
                     <img src="{{contact.photos[0].value}}" ng-if="contact.photos.length > 0">
 		            <img src="img/user_img.png" ng-if="!contact.photos">
                 </span>
+
                 <p>Name: {{contact.displayName}} address:{{contact.addresses[0]['streetAddress']}}</p>
+
                 <p>phoneNumber: {{contact.phoneNumbers[0].value}} </p>
             </ion-item>
         </ion-list>

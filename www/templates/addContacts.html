@@ -1,10 +1,4 @@
 <ion-modal-view>
-  <ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeModal()">Close</button>
-    </div>
-  </ion-header-bar>
   <ion-content>
     <form ng-submit="saveContact()">
       <div class="list">
@@ -19,13 +13,22 @@
         </label>
 
         <label class="item item-input">
-          <span class="input-label">phoneNumber</span>
+          <span class="input-label">Phone number</span>
           <input type="text" ng-model="loginData.phoneNumber">
+        </label>
+
+        <button type="button" class="photo-button" ng-click="loadPhoto()">Load photo</button>
+
+        <label class="item item-input">
+          <span class="input-label">Photo</span>
+          <img ng-if="resultImage" ng-src="{{ resultImage }}">
         </label>
 
         <label class="item">
           <button class="button button-block button-positive" type="submit">Add phone</button>
         </label>
+
+        <button class="button" ng-click="closeModal()">Close</button>
       </div>
     </form>
   </ion-content>
