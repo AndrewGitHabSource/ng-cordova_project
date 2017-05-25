@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'starter.services'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'starter.services', 'ionic-audio'])
 
     .run(function ($ionicPlatform) {
         $ionicPlatform.ready(function () {
@@ -48,6 +48,16 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ngCordova', 'starter
                     'menuContent': {
                         templateUrl: 'templates/gallery.html',
                         controller: 'gallery'
+                    }
+                }
+            })
+
+            .state('app.audio', {
+                url: '/audio',
+                views: {
+                    'menuContent': {
+                        templateUrl: 'templates/audio.html',
+                        controller: 'audio'
                     }
                 }
             });

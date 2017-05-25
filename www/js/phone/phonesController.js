@@ -4,7 +4,6 @@ angular.module('starter.controllers')
 
         $scope.loginData = {};
 
-
         $ionicModal.fromTemplateUrl('templates/addContacts.html', {
             scope: $scope
         }).then(function (modal) {
@@ -39,7 +38,6 @@ angular.module('starter.controllers')
             }, 1000);
         };
 
-
         $scope.contacts = [];
 
         $scope.getAllContacts = function () {
@@ -51,7 +49,6 @@ angular.module('starter.controllers')
         $timeout(function () {
             $scope.getAllContacts();
         }, 1000);
-
     })
 
     .controller('PlaylistCtrl', function ($scope, $stateParams) {
