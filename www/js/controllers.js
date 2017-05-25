@@ -1,5 +1,5 @@
-angular.module('starter.controllers', ['ngCordova'])
+angular.module('starter.controllers', [])
 
     .controller('AppCtrl', function ($scope, $ionicModal, $timeout, $cordovaContacts, $ionicPlatform) {
-        $scope.title = 'My phone application';
+
     });
