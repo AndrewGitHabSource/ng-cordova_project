@@ -1,0 +1,15 @@
+<ion-view view-title="phones list">
+    <ion-content>
+        <button class="add-contacts" ng-click="ShowModalContactsAdd()">Add contacts</button>
+        <ion-list>
+            <ion-item ng-repeat="contact in contacts">
+                <span>
+                    <img src="{{contact.photos[0].value}}" ng-if="contact.photos.length > 0">
+		            <img src="img/user_img.png" ng-if="!contact.photos">
+                </span>
+                <p>Name: {{contact.displayName}} address:{{contact.addresses[0]['streetAddress']}}</p>
+                <p>phoneNumber: {{contact.phoneNumbers[0].value}} </p>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

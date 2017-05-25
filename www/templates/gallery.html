@@ -1,0 +1,13 @@
+<ion-view view-title="gallery">
+    <ion-content class="gallery">
+        <button ng-click="getImageInGallery()">get image from gallery</button>
+
+        <button ng-click="getImageInCamera()">get image from camera</button>
+
+        <button ng-click="deleteImage()">X</button>
+
+        <p>
+            <img ng-if="resultImage" ng-src="{{ resultImage }}">
+        </p>
+    </ion-content>
+</ion-view>

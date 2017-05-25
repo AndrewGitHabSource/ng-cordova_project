@@ -1,0 +1,26 @@
+<ion-view view-title="gallery">
+    <ion-header-bar class="bar-positive">
+        <h1 class="title">Audio</h1>
+    </ion-header-bar>
+
+    <ion-content>
+        <ion-audio-track ng-repeat="track in tracks" track="track">
+            <div class="card">
+                <div class="item">
+                    <h2>{{track.title}}</h2>
+                    <p>{{track.artist}}</p>
+                    <ion-audio-controls>
+                        <button class="button button-small button-assertive icon-left" ion-audio-play text-play="Play" text-pause="Pause"></button>
+                        <ion-spinner></ion-spinner>
+                    </ion-audio-controls>
+                </div>
+            </div>
+        </ion-audio-track>
+        <div class="card">
+            <div class="item item-divider item-stable">
+                <ion-audio-progress-bar display-time display-info></ion-audio-progress-bar>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
+
