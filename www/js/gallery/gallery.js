@@ -1,6 +1,6 @@
 angular.module('starter.controllers')
 
-    .controller('gallery', function ($scope, $ionicModal, $cordovaImagePicker, $ionicPlatform, $cordovaCamera) {
+    .controller('gallery', function ($scope, $cordovaImagePicker, galleryService) {
 
         $scope.getImageInGallery = function () {
 
@@ -17,33 +17,18 @@ angular.module('starter.controllers')
                     $scope.resultImage = results[0];
 
                 }, function (error) {
+
                     alert(error);
+
                 });
         };
 
         $scope.getImageInCamera = function () {
-
-            var optionsCamera = {
-                quality: 80,
-                destinationType: Camera.DestinationType.DATA_URL,
-                sourceType: Camera.PictureSourceType.CAMERA,
-                allowEdit: true,
-                encodingType: Camera.EncodingType.JPEG,
-                targetWidth: 200,
-                targetHeight: 200,
-                popoverOptions: CameraPopoverOptions,
-                saveToPhotoAlbum: false,
-                correctOrientation: true
-            };
-
-            $cordovaCamera.getPicture(optionsCamera).then(function (imageData) {
+            galleryService.loadPictureFromCamera(function (imageData) {
 
                 $scope.resultImage = "data:image/jpeg;base64," + imageData;
 
-            }, function (error) {
-                alert(error);
             });
-
         };
 
         $scope.deleteImage = function () {
