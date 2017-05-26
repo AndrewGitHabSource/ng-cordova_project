@@ -2,6 +2,7 @@ angular.module('starter.controllers')
 
     .controller('gallery', function ($scope, $cordovaImagePicker, galleryService) {
 
+        /* load image from gallery */
         $scope.getImageInGallery = function () {
 
             var options = {
@@ -23,6 +24,7 @@ angular.module('starter.controllers')
                 });
         };
 
+        /* load image in camera */
         $scope.getImageInCamera = function () {
             galleryService.loadPictureFromCamera(function (imageData) {
 

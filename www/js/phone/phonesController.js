@@ -46,6 +46,7 @@ angular.module('starter.controllers')
                 });
         };
 
+        /* save contact on phone */
         $scope.saveContact = function () {
             contactService.saveContact($scope.loginData.name, $scope.loginData.phoneNumber, $scope.loginData.address, $scope.resultImage);
 
@@ -60,6 +61,7 @@ angular.module('starter.controllers')
 
         $scope.contacts = [];
 
+        /* load all contacts */
         $scope.getAllContacts = function () {
             contactService.loadAllContacts(function (data) {
 

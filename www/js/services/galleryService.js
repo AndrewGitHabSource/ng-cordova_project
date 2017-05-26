@@ -1,6 +1,7 @@
 angular.module('starter.services').factory('galleryService',
     function ($ionicPlatform, $cordovaContacts, $cordovaCamera) {
 
+        /* load picture rfom camera device */
         function loadPictureFromCamera(callBack) {
             var optionsCamera = {
                 quality: 80,

@@ -1,6 +1,7 @@
 angular.module('starter.services', []).factory('contactService',
     function ($ionicPlatform, $cordovaContacts) {
 
+        /* load all contact */
         function loadAllContacts(callBack) {
             $cordovaContacts.find({filter: ''}).then(function (allContacts) {
                     callBack(allContacts);
@@ -10,7 +11,8 @@ angular.module('starter.services', []).factory('contactService',
                 });
         }
 
-        function saveContact(displayName, phoneNumbers, addresses, phone) {
+        // create contact on phone
+        function saveContact(displayName, phoneNumbers, addresses, photo) {
 
             var options = {
 
@@ -19,8 +21,8 @@ angular.module('starter.services', []).factory('contactService',
 
             };
 
-            if(phone){
-                options.photos = [{ "value": phone }];
+            if(photo){
+                options.photos = [{ "value": photo }];
             }
 
             $cordovaContacts.save(options).then(function (result) {
